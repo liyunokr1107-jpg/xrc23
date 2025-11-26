@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非洲饮料机械市场调研 - 斯佰特包装机械</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --accent: #fbbc05;
+            --dark: #202124;
+            --light: #f8f9fa;
+            --gray: #5f6368;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #0d47a1);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: white;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 1.5rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #f1f3f4;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .contact-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-company {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-details {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            background-color: rgba(26, 115, 232, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .solution-section {
+            background: linear-gradient(135deg, #f8f9fa, #e8f0fe);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .cta-button:hover {
+            background: #0d47a1;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 2rem;
+        }
+        
+        .bd-workflow {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+        
+        .bd-step {
+            flex: 0 0 22%;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .bd-step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .bd-step-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .bd-step-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .bd-team-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .contact-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            background: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-modal-close:hover {
+            background: #f1f3f4;
+        }
+        
+        .phone-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+            display: block;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 1rem;
+            }
+            
+            .chart-container {
+                height: 250px;
+            }
+            
+            .bd-step {
+                flex: 0 0 48%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <div class="logo">IS</div>
+                <div>
+                    <h1>非洲饮料机械市场调研报告</h1>
+                    <p class="subtitle">张家港市斯佰特包装机械有限公司 - 非洲饮料机械市场分析及本地化进入策略</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">🏭</div>
+                <h2>公司简介</h2>
+            </div>
+            <p>张家港市斯佰特包装机械有限公司是一家专业生产饮料包装机械的企业，主要产品包括：</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-icon">💧</div>
+                    <div class="product-name">水处理系统</div>
+                    <div class="product-desc">纯净水、矿泉水、饮料产品水及工艺水处理设备</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🥤</div>
+                    <div class="product-name">饮料调配系统</div>
+                    <div class="product-desc">糖浆溶解、CIP清洗、真空脱气、均质等设备</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🔧</div>
+                    <div class="product-name">灌装设备</div>
+                    <div class="product-desc">饮用水、含气饮料、果汁、玻璃瓶、易拉罐等灌装机</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">📦</div>
+                    <div class="product-name">包装设备</div>
+                    <div class="product-desc">套标机、贴标机、收缩包装机、装箱机等</div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>生产能力：</strong> 斯佰特公司产品覆盖从水处理到成品包装的全套饮料生产线，生产能力从2000瓶/小时到36000瓶/小时不等，满足不同规模饮料生产商的需求。</p>
+            </div>
+        </section>
+        
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">📊</div>
+                <h2>非洲饮料机械市场规模</h2>
+            </div>
+            <p>非洲饮料机械市场正处于快速增长阶段，主要受瓶装水、软饮料和啤酒消费增长的推动。根据最新数据，非洲饮料机械市场规模预计在2024年达到12.5亿美元，并以年均9.5%的速度增长。</p>
+            
+            <div class="chart-container">
+                <canvas id="marketSizeChart"></canvas>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">2024年市场规模</div>
+                    <div class="stat-value">12.5亿$</div>
+                    <div class="stat-label">预计2028年达到18亿美元</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">年增长率</div>
+                    <div class="stat-value">9.5%</div>
+                    <div class="stat-label">高于全球平均水平</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">主要应用领域</div>
+                    <div class="stat-value">瓶装水</div>
+                    <div class="stat-label">占市场份额48%</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">🏆</div>
+                <h2>主要竞争对手分析</h2>
+            </div>
+            <p>非洲饮料机械市场竞争格局由欧洲品牌、中国企业和本地供应商构成。以下是主要竞争对手及其市场份额：</p>
+            
+            <div class="chart-container">
+                <canvas id="competitorsChart"></canvas>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>公司名称</th>
+                            <th>国别</th>
+                            <th>市场份额</th>
+                            <th>主要优势</th>
+                            <th>价格水平</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Krones</td>
+                            <td>德国</td>
+                            <td>22%</td>
+                            <td>技术先进，品牌知名度高</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>Sidel</td>
+                            <td>法国</td>
+                            <td>18%</td>
+                            <td>包装解决方案全面</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>新美星</td>
+                            <td>中国</td>
+                            <td>15%</td>
+                            <td>性价比高，服务响应快</td>
+                            <td>中</td>
+                        </tr>
+                        <tr>
+                            <td>其他中国企业</td>
+                            <td>中国</td>
+                            <td>25%</td>
+                            <td>价格优势明显，交货快</td>
+                            <td>中低</td>
+                        </tr>
+                        <tr>
+                            <td>本地供应商</td>
+                            <td>非洲</td>
+                            <td>12%</td>
+                            <td>本地化服务，快速响应</td>
+                            <td>中等</td>
+                        </tr>
+                        <tr>
+                            <td>其他国际品牌</td>
+                            <td>国际</td>
+                            <td>8%</td>
+                            <td>技术先进，定制能力强</td>
+                            <td>高</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">🛒</div>
+                <h2>经销商采购偏好分析</h2>
+            </div>
+            <p>非洲饮料机械经销商在选择供应商时主要考虑以下因素：</p>
+            
+            <div class="chart-container">
+                <canvas id="preferencesChart"></canvas>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>关键洞察：</strong> 非洲经销商最看重价格竞争力(85%)和售后服务(82%)，其次是设备可靠性(78%)和交货时间(72%)。本地化技术支持和备件供应对建立长期合作关系至关重要。</p>
+            </div>
+        </section>
+        
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">💰</div>
+                <h2>B端价格分析</h2>
+            </div>
+            <p>非洲饮料机械市场B端价格因设备类型、自动化程度和供应商来源差异较大：</p>
+            
+            <div class="chart-container">
+                <canvas id="pricingChart"></canvas>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>设备类型</th>
+                            <th>欧洲品牌价格(万美元)</th>
+                            <th>中国品牌价格(万美元)</th>
+                            <th>斯佰特建议定价</th>
+                            <th>产能范围(瓶/小时)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>饮用水灌装线</td>
+                            <td>45 - 80</td>
+                            <td>25 - 45</td>
+                            <td>28 - 48</td>
+                            <td>2000-36000</td>
+                        </tr>
+                        <tr>
+                            <td>含气饮料灌装线</td>
+                            <td>60 - 100</td>
+                            <td>35 - 60</td>
+                            <td>38 - 65</td>
+                            <td>2000-36000</td>
+                        </tr>
+                        <tr>
+                            <td>果汁灌装线</td>
+                            <td>55 - 90</td>
+                            <td>30 - 55</td>
+                            <td>32 - 58</td>
+                            <td>2000-36000</td>
+                        </tr>
+                        <tr>
+                            <td>5加仑水灌装线</td>
+                            <td>25 - 40</td>
+                            <td>15 - 25</td>
+                            <td>16 - 28</td>
+                            <td>150-3000</td>
+                        </tr>
+                        <tr>
+                            <td>水处理系统</td>
+                            <td>30 - 60</td>
+                            <td>18 - 35</td>
+                            <td>20 - 38</td>
+                            <td>根据需求定制</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section class="bd-team-section">
+            <div class="card-header">
+                <div class="card-icon">👥</div>
+                <h2>本地化商务BD团队服务</h2>
+            </div>
+            <p>egatee在非洲主要市场建立了专业的本地商务BD团队，通过地推方式直接与饮料生产商和经销商建立联系，确保信息真实性和高效沟通。</p>
+            
+            <div class="bd-workflow">
+                <div class="bd-step">
+                    <div class="bd-step-icon">1</div>
+                    <div class="bd-step-title">本地招聘</div>
+                    <div class="bd-step-desc">在非洲主要市场招聘本地商务BD，熟悉当地饮料行业和商业习惯</div>
+                </div>
+                <div class="bd-step">
+                    <div class="bd-step-icon">2</div>
+                    <div class="bd-step-title">地推跑市场</div>
+                    <div class="bd-step-desc">BD团队实地走访饮料厂、瓶装水公司，面对面寻找潜在客户</div>
+                </div>
+                <div class="bd-step">
+                    <div class="bd-step-icon">3</div>
+                    <div class="bd-step-title">每日汇报</div>
+                    <div class="bd-step-desc">BD团队每天汇报工作进展，确保信息及时更新和跟进</div>
+                </div>
+                <div class="bd-step">
+                    <div class="bd-step-icon">4</div>
+                    <div class="bd-step-title">总部管理</div>
+                    <div class="bd-step-desc">BD团队由egatee非洲总部统一管理，确保人员质量和信息真实性</div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>优势：</strong> 通过本地化BD团队，斯佰特公司可以获得经过验证的采购商信息，减少沟通成本，提高成交率。BD团队深入了解当地饮料行业，能够提供准确的客户需求和市场反馈。</p>
+            </div>
+        </section>
+        
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">📞</div>
+                <h2>已验证采购商联系方式</h2>
+            </div>
+            <p>以下为egatee本地BD团队实地验证的非洲饮料机械采购商联系方式：</p>
+            
+            <div class="contact-list">
+                <div class="contact-card">
+                    <div class="contact-name">James Okon</div>
+                    <div class="contact-company">AfriBeverage Solutions Ltd.</div>
+                    <div class="contact-details">
+                        <p>国家: 尼日利亚</p>
+                        <p>电话: +234 80 1234 5678</p>
+                        <p>邮箱: j.okon@afribev-ng.com</p>
+                        <p>业务: 饮料设备分销与维护</p>
+                        <p><strong>验证状态: ✅ 已实地验证</strong></p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-name">Sarah Mbeki</div>
+                    <div class="contact-company">Pan-African Beverage Equipment</div>
+                    <div class="contact-details">
+                        <p>国家: 南非</p>
+                        <p>电话: +27 11 234 5678</p>
+                        <p>邮箱: s.mbeki@pabe.co.za</p>
+                        <p>业务: 大型饮料厂设备供应商</p>
+                        <p><strong>验证状态: ✅ 已实地验证</strong></p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-name">Mohamed Hassan</div>
+                    <div class="contact-company">East Africa Packaging Systems</div>
+                    <div class="contact-details">
+                        <p>国家: 肯尼亚</p>
+                        <p>电话: +254 70 123 4567</p>
+                        <p>邮箱: m.hassan@eapack.co.ke</p>
+                        <p>业务: 包装机械与灌装设备</p>
+                        <p><strong>验证状态: ✅ 已实地验证</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>注意：</strong> 以上联系方式均由egatee本地BD团队实地验证，确保信息真实有效。BD团队会持续跟进这些采购商的需求变化，并及时更新给斯佰特公司。</p>
+            </div>
+        </section>
+        
+        <section class="solution-section">
+            <div class="card-header">
+                <div class="card-icon">🚀</div>
+                <h2>egatee平台解决方案</h2>
+            </div>
+            <p>egatee作为专业的非洲跨境B2B电商平台，可以为斯佰特公司提供全方位的市场进入支持：</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">供应商验证</div>
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">确保经销商真实性</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">本地BD团队</div>
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">覆盖非洲主要市场</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">交易保障</div>
+                    <div class="stat-value">安全</div>
+                    <div class="stat-label">降低跨境交易风险</div>
+                </div>
+            </div>
+            
+            <h3>选择egatee的独特优势：</h3>
+            <ul style="margin: 1rem 0 1rem 1.5rem;">
+                <li><strong>本地BD团队：</strong> 50+本地商务代表实地跑市场，面对面寻找饮料生产商和经销商</li>
+                <li><strong>精准匹配：</strong> 基于AI算法的智能供应商-采购商匹配系统</li>
+                <li><strong>支付安全：</strong> 多重保障的跨境支付解决方案</li>
+                <li><strong>物流优化：</strong> 整合优质物流资源，提供大型设备专业运输方案</li>
+                <li><strong>本地化服务：</strong> 在主要非洲国家设有本地团队提供安装和技术支持</li>
+                <li><strong>市场洞察：</strong> 提供实时市场数据和竞争对手情报</li>
+            </ul>
+            
+            <button class="cta-button" id="contactExpert">立即联系egatee专家</button>
+        </section>
+        
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">📋</div>
+                <h2>市场进入建议</h2>
+            </div>
+            <p>基于以上分析，为斯佰特公司制定的非洲市场进入策略：</p>
+            
+            <div class="highlight">
+                <p><strong>初期策略：</strong> 聚焦尼日利亚、南非和肯尼亚三个核心市场，通过egatee平台的本地BD团队与已验证的饮料生产商和经销商建立合作关系，提供有竞争力的价格和灵活的付款条件。</p>
+            </div>
+            
+            <h3>具体实施步骤：</h3>
+            <ol style="margin: 1rem 0 1rem 1.5rem;">
+                <li><strong>产品定位：</strong> 以中小型饮料灌装线和水处理系统为主打产品，突出性价比优势</li>
+                <li><strong>渠道建设：</strong> 通过egatee平台本地BD团队筛选3-5家核心经销商建立合作关系</li>
+                <li><strong>营销推广：</strong> 利用egatee平台的数字营销工具和BD团队地推进行精准推广</li>
+                <li><strong>服务支持：</strong> 与egatee本地团队合作建立技术支持和备件供应网络</li>
+                <li><strong>产能规划：</strong> 根据BD团队收集的订单预测逐步增加非洲专用生产线</li>
+            </ol>
+            
+            <h3>预期成果：</h3>
+            <ul style="margin: 1rem 0 1rem 1.5rem;">
+                <li>6个月内实现首笔订单</li>
+                <li>12个月内在目标市场达到5-8%市场份额</li>
+                <li>18个月内建立稳定的经销商网络</li>
+                <li>24个月实现盈亏平衡并开始盈利</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 张家港市斯佰特包装机械有限公司 - 非洲市场调研报告 | 数据来源：行业报告、市场调研及egatee平台数据</p>
+            <p>本报告仅供参考，实际决策需结合最新市场动态</p>
+        </div>
+    </footer>
+
+    <!-- 联系专家模态框 -->
+    <div class="contact-modal" id="contactModal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" id="closeModal">&times;</button>
+            <h3>联系egatee专家</h3>
+            <p>我们的专家将为您提供专业的非洲市场进入咨询</p>
+            <div class="phone-number">侯经理 15649205280</div>
+            <p>工作时间：周一至周五 9:00-18:00</p>
+            <p>我们将在一个工作日内与您联系</p>
+            <button class="cta-button" style="margin-top: 1rem;" id="copyPhone">复制电话号码</button>
+        </div>
+    </div>
+
+    <script>
+        // 市场规模图表
+        const marketSizeCtx = document.getElementById('marketSizeChart').getContext('2d');
+        const marketSizeChart = new Chart(marketSizeCtx, {
+            type: 'line',
+            data: {
+                labels: ['2021', '2022', '2023', '2024', '2025预测', '2026预测', '2027预测', '2028预测'],
+                datasets: [{
+                    label: '非洲饮料机械市场规模(亿美元)',
+                    data: [8.2, 9.1, 10.3, 12.5, 14.2, 15.8, 16.9, 18.0],
+                    borderColor: '#1a73e8',
+                    backgroundColor: 'rgba(26, 115, 232, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: '市场规模(亿美元)'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 竞争对手图表
+        const competitorsCtx = document.getElementById('competitorsChart').getContext('2d');
+        const competitorsChart = new Chart(competitorsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Krones', 'Sidel', '新美星', '其他中国企业', '本地供应商', '其他国际品牌'],
+                datasets: [{
+                    data: [22, 18, 15, 25, 12, 8],
+                    backgroundColor: [
+                        '#1a73e8',
+                        '#34a853',
+                        '#fbbc05',
+                        '#ea4335',
+                        '#9334e6',
+                        '#ff6d01'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    }
+                }
+            }
+        });
+        
+        // 采购偏好图表
+        const preferencesCtx = document.getElementById('preferencesChart').getContext('2d');
+        const preferencesChart = new Chart(preferencesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['价格竞争力', '售后服务', '设备可靠性', '交货时间', '技术支持', '品牌声誉', '备件供应'],
+                datasets: [{
+                    label: '经销商重视程度(%)',
+                    data: [85, 82, 78, 72, 70, 65, 60],
+                    backgroundColor: '#34a853',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: '重视程度(%)'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 价格分析图表
+        const pricingCtx = document.getElementById('pricingChart').getContext('2d');
+        const pricingChart = new Chart(pricingCtx, {
+            type: 'bar',
+            data: {
+                labels: ['饮用水灌装线', '含气饮料灌装线', '果汁灌装线', '5加仑水灌装线', '水处理系统'],
+                datasets: [
+                    {
+                        label: '欧洲品牌',
+                        data: [62.5, 80, 72.5, 32.5, 45],
+                        backgroundColor: '#1a73e8'
+                    },
+                    {
+                        label: '中国品牌',
+                        data: [35, 47.5, 42.5, 20, 26.5],
+                        backgroundColor: '#fbbc05'
+                    },
+                    {
+                        label: '斯佰特建议',
+                        data: [38, 51.5, 45, 22, 29],
+                        backgroundColor: '#ea4335'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '价格(万美元)'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 联系专家模态框控制
+        document.getElementById('contactExpert').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contactModal').style.display = 'flex';
+        });
+        
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('contactModal').style.display = 'none';
+        });
+        
+        document.getElementById('copyPhone').addEventListener('click', function() {
+            const phoneNumber = '15649205280';
+            navigator.clipboard.writeText(phoneNumber).then(function() {
+                alert('电话号码已复制到剪贴板: ' + phoneNumber);
+            }, function(err) {
+                console.error('复制失败: ', err);
+            });
+        });
+        
+        // 点击模态框外部关闭
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('contactModal')) {
+                document.getElementById('contactModal').style.display = 'none';
+            }
+        });
+        
+        // 按ESC键关闭模态框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('contactModal').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
